@@ -1,0 +1,46 @@
+.modal__content_type_image {
+  background-color: #fff;
+  position: relative;
+  width: 323px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal__close img {
+  width: 20px;
+  height: 20px;
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+  object-fit: fill;
+}
+
+.modal__caption {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 24px;
+  padding-left: 32px;
+}
+
+.modal__weather {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  padding-left: 32px;
+}

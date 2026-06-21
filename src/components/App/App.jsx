@@ -57,7 +57,7 @@ function App() {
             type="text"
             className="modal__input"
             id="name"
-            placeholer="Name"
+            placeholder="Name"
           />
         </label>
         <label htmlFor="imageUrl" className="modal__label">
@@ -66,7 +66,7 @@ function App() {
             type="text"
             className="modal__input"
             id="imageUrl"
-            placeholer="Image URL"
+            placeholder="Image URL"
           />
         </label>
         <fieldset className="modal__radio-btn">
