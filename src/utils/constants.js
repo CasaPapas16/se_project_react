@@ -6,8 +6,8 @@ export const weatherOptions = [
   },
   {
     day: true,
-    condition: "cloudy",
-    url: new URL("../assets/day/cloudy.png", import.meta.url).href,
+    condition: "clouds",
+    url: new URL("../assets/day/clouds.png", import.meta.url).href,
   },
   {
     day: true,
@@ -26,8 +26,8 @@ export const weatherOptions = [
   },
   {
     day: true,
-    condition: "storm",
-    url: new URL("../assets/day/cstorm.png", import.meta.url).href,
+    condition: "thunderstorm",
+    url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
   },
   {
     day: false,
@@ -36,8 +36,8 @@ export const weatherOptions = [
   },
   {
     day: false,
-    condition: "cloudy",
-    url: new URL("../assets/night/cloudy.png", import.meta.url).href,
+    condition: "clouds",
+    url: new URL("../assets/night/clouds.png", import.meta.url).href,
   },
   {
     day: false,
@@ -56,11 +56,10 @@ export const weatherOptions = [
   },
   {
     day: false,
-    condition: "storm",
-    url: new URL("../assets/night/storm.png", import.meta.url).href,
+    condition: "thunderstorm",
+    url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
   },
 ];
-
 
 export const coordinates = {
   latitude: 36.16994136,
@@ -68,4 +67,3 @@ export const coordinates = {
 };
 
 export const APIkey = "3d07d45968d5b1afac82f04e72db849b";
-
