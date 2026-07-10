@@ -17,8 +17,12 @@
   font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
 }
 
+.header__toggle {
+  margin-left: auto;
+}
+
 .header__add-clothes-btn {
-  margin: 0 20px 0 auto;
+  margin: 0 20px 0 0;
   border-style: none;
   font-weight: 700;
   line-height: 24px;
