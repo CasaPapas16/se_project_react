@@ -37,6 +37,11 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const onAddItem = (inputValues) => {
+    setClothingItems([...clothingItems, inputValues]);
+    closeActiveModal();
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -78,16 +83,10 @@ function App() {
             handleCardClick={handleCardClick}
           />
         </div>
-        {/* <ModalWithForm
-          title="New garment"
-          buttonText="Add garment"
-          isOpen={activeModal === "add-garment"}
-          onClose={closeActiveModal}
-          name="add-garment"
-        ></ModalWithForm> */}
         <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
+          onAddItem={onAddItem}
         />
         <ItemModal
           isOpen={activeModal === "preview"}
