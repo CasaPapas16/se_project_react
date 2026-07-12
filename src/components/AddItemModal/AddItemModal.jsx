@@ -42,6 +42,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           placeholder="Image URL"
           value={values.link}
           onChange={handleChange}
+          required
         />
       </label>
       <fieldset className="modal__radio-btn">
