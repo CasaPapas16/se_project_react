@@ -44,3 +44,25 @@
   font-weight: 700;
   padding-left: 32px;
 }
+
+.modal__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__delete-btn {
+  margin-left: auto;
+  padding: 23px 32px;
+  color: #ff4d00;
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+}

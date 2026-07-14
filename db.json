@@ -107,6 +107,12 @@
       "imageUrl": "https://images.pexels.com/photos/1670770/pexels-photo-1670770.jpeg?cs=srgb&dl=pexels-mnzoutfits-1670770.jpg&fm=jpg",
       "weather": "hot",
       "_id": 17
+    },
+    {
+      "name": "clothes",
+      "imageUrl": "https://images.pexels.com/photos/1670770/pexels-photo-1670770.jpeg?cs=srgb&dl=pexels-mnzoutfits-1670770.jpg&fm=jpg",
+      "weather": "hot",
+      "_id": 18
     }
   ]
 }
