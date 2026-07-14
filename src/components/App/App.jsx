@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, Apikey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -74,10 +74,10 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, Apikey)
       .then((data) => {
-        const filterData = filterWeatherData(data);
-        setWeatherData(filterData);
+        const filteredData = filterWeatherData(data);
+        setWeatherData(filteredData);
       })
       .catch(console.error);
 
@@ -89,15 +89,15 @@ function App() {
   }, []);
 
   const handleDeleteItem = (item) => {
-  removeItem(item._id)
-    .then(() => {
-      setClothingItems((prevItems) =>
-        prevItems.filter((i) => i._id !== item._id)
-      );
-      closeActiveModal();
-    })
-    .catch(console.error);
-};
+    removeItem(item._id)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((i) => i._id !== item._id),
+        );
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
 
   return (
     <CurrentTemperatureUnitContext.Provider
@@ -121,7 +121,8 @@ function App() {
               path="/profile"
               element={
                 <Profile
-                  onCardClick={handleCardClick}
+                  handleCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
                   clothingItems={clothingItems}
                 />
               }

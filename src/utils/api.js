@@ -2,12 +2,12 @@ const baseUrl = "http://localhost:3001";
 
 const headers = { "Content-Type": "application/json" };
 
-const handleSeverResponse = (res) => {
+export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
 export const getItems = () =>
-  fetch(`${baseUrl}/items`, { headers }).then(handleSeverResponse);
+  fetch(`${baseUrl}/items`, { headers }).then(handleServerResponse);
 
 export const addItem = ({ name, imageUrl, weather }) => {
   return fetch(`${baseUrl}/items`, {
@@ -18,12 +18,12 @@ export const addItem = ({ name, imageUrl, weather }) => {
       imageUrl,
       weather,
     }),
-  }).then(handleSeverResponse);
+  }).then(handleServerResponse);
 };
 
-export const removeItem = (itemID) => {
-  return fetch(`${baseUrl}/items/${itemID}`, {
+export const removeItem = (itemId) => {
+  return fetch(`${baseUrl}/items/${itemId}`, {
     method: "DELETE",
     headers,
-  }).then(handleSeverResponse);
+  }).then(handleServerResponse);
 };
