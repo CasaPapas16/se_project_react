@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { coordinates, Apikey } from "../../utils/constants";
+import { fallbackCoordinates, Apikey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -74,12 +74,37 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
-    getWeather(coordinates, Apikey)
-      .then((data) => {
-        const filteredData = filterWeatherData(data);
-        setWeatherData(filteredData);
-      })
-      .catch(console.error);
+    const loadWeatherForCurrentLocation = (coords) => {
+      getWeather(coords, Apikey)
+        .then((data) => {
+          const filteredData = filterWeatherData(data);
+          setWeatherData(filteredData);
+        })
+        .catch(console.error);
+    };
+
+    const fallbackToDefaultWeather = () => {
+      loadWeatherForCurrentLocation(fallbackCoordinates);
+    };
+
+    if (!navigator.geolocation) {
+      fallbackToDefaultWeather();
+    } else {
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+          loadWeatherForCurrentLocation({
+            latitude: coords.latitude,
+            longitude: coords.longitude,
+          });
+        },
+        fallbackToDefaultWeather,
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0,
+        },
+      );
+    }
 
     getItems()
       .then((data) => {

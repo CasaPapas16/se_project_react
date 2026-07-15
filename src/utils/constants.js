@@ -61,7 +61,7 @@ export const weatherOptions = [
   },
 ];
 
-export const coordinates = {
+export const fallbackCoordinates = {
   latitude: 36.16994136,
   longitude: -115.139832,
 };
