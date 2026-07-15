@@ -113,6 +113,12 @@
       "imageUrl": "https://images.pexels.com/photos/1670770/pexels-photo-1670770.jpeg?cs=srgb&dl=pexels-mnzoutfits-1670770.jpg&fm=jpg",
       "weather": "hot",
       "_id": 18
+    },
+    {
+      "name": "shirts",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.VHU4Gq5KHcx4OBY49_SExQHaLG?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "weather": "hot",
+      "_id": 19
     }
   ]
 }
