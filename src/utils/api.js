@@ -35,3 +35,22 @@ export const removeItem = (itemId, token) => {
     headers: { ...headers, authorization: `Bearer ${token}` },
   }).then(handleServerResponse);
 };
+
+export const updateUser = ({ name, avatar }, token) =>
+  fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: { ...headers, authorization: `Bearer ${token}` },
+    body: JSON.stringify({ name, avatar }),
+  }).then(handleServerResponse);
+
+export const addCardLike = (itemId, token) =>
+  fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "PUT",
+    headers: { ...headers, authorization: `Bearer ${token}` },
+  }).then(handleServerResponse);
+
+export const removeCardLike = (itemId, token) =>
+  fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "DELETE",
+    headers: { ...headers, authorization: `Bearer ${token}` },
+  }).then(handleServerResponse);

@@ -27,6 +27,7 @@ function LoginModal({ isOpen, onClose, onLogin }) {
           id="login-email"
           name="email"
           type="email"
+          placeholder="Email"
           value={values.email}
           onChange={handleChange}
           required
@@ -39,6 +40,7 @@ function LoginModal({ isOpen, onClose, onLogin }) {
           id="login-password"
           name="password"
           type="password"
+          placeholder="Password"
           value={values.password}
           onChange={handleChange}
           required
