@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer";
 import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -56,7 +57,7 @@ function App() {
   };
 
   const handleLogin = (credentials) => {
-    login(credentials)
+    return login(credentials)
       .then((res) => {
         localStorage.setItem("jwt", res.token);
         setToken(res.token);
@@ -71,9 +72,7 @@ function App() {
   };
 
   const handleRegister = (userData) => {
-    register(userData)
-      .then(() => handleLogin(userData))
-      .catch(console.error);
+    register(userData).then(() => handleLogin(userData));
   };
 
   const handleUpdateProfile = (userData) => {
@@ -209,6 +208,11 @@ function App() {
       .catch(console.error);
   };
 
+  const handleDeleteRequest = (item) => {
+    setSelectedCard(item);
+    setActiveModal("delete");
+  };
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
@@ -260,11 +264,13 @@ function App() {
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onRegister={handleRegister}
+            onLoginClick={() => setActiveModal("login")}
           />
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             onLogin={handleLogin}
+            onRegisterClick={() => setActiveModal("register")}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
@@ -276,7 +282,12 @@ function App() {
             isOpen={activeModal === "preview"}
             card={selectedCard}
             onClose={closeActiveModal}
-            onDelete={handleDeleteItem}
+            onDelete={handleDeleteRequest}
+          />
+          <DeleteModal
+            isOpen={activeModal === "delete"}
+            onClose={closeActiveModal}
+            onConfirm={() => handleDeleteItem(selectedCard)}
           />
           <Footer />
         </div>

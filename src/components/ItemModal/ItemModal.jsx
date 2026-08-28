@@ -3,9 +3,10 @@ import { useContext } from "react";
 import close from "../../assets/closewht.png";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function ItemModal({ activeModal, onClose, card, name, isOpen, onDelete }) {
+function ItemModal({ onClose, card, name, isOpen, onDelete }) {
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = currentUser && card.owner === currentUser._id;
+  const cardOwnerId = card.owner?._id || card.owner;
+  const isOwn = currentUser && String(cardOwnerId) === String(currentUser._id);
 
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>

@@ -47,6 +47,7 @@ function EditProfileModal({ isOpen, onClose, currentUser, onUpdateProfile }) {
       title="Edit profile"
       buttonText="Save changes"
       name="edit-profile"
+      formClassName="modal__form_type_edit-profile"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={submit}

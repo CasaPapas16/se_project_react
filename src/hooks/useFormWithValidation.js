@@ -54,7 +54,6 @@ function validateValues(valuesToValidate, validationRules = {}) {
 export function useFormWithValidation(defaultValues, validationRules = {}) {
   const [values, setValues] = useState(defaultValues);
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleChange = (evt) => {
@@ -66,21 +65,11 @@ export function useFormWithValidation(defaultValues, validationRules = {}) {
 
     const nextErrors = validateValues(nextValues, validationRules);
     setErrors(nextErrors);
-    setIsValid(Object.keys(nextErrors).length === 0);
-  };
-
-  const validate = (valuesToValidate = values) => {
-    const nextErrors = validateValues(valuesToValidate, validationRules);
-    setErrors(nextErrors);
-    const nextIsValid = Object.keys(nextErrors).length === 0;
-    setIsValid(nextIsValid);
-    return nextIsValid;
   };
 
   const resetForm = () => {
     setValues({ ...defaultValues });
     setErrors({});
-    setIsValid(false);
     setHasSubmitted(false);
   };
 
@@ -89,18 +78,15 @@ export function useFormWithValidation(defaultValues, validationRules = {}) {
     const nextErrors = validateValues(valuesToValidate, validationRules);
     setErrors(nextErrors);
     const nextIsValid = Object.keys(nextErrors).length === 0;
-    setIsValid(nextIsValid);
     return nextIsValid;
   };
 
   return {
     values,
     errors,
-    isValid,
     hasSubmitted,
     handleChange,
     resetForm,
-    validate,
     handleSubmit,
     setValues,
   };

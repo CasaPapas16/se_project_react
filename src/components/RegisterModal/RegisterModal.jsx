@@ -3,12 +3,17 @@ import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 const defaultValues = { name: "", avatar: "", email: "", password: "" };
 
-function RegisterModal({ isOpen, onClose, onRegister }) {
-  const { values, handleChange } = useFormWithValidation(defaultValues, {});
+function RegisterModal({ isOpen, onClose, onRegister, onLoginClick }) {
+  const { values, handleChange, resetForm } = useFormWithValidation(
+    defaultValues,
+    {},
+  );
 
   const submit = (event) => {
     event.preventDefault();
-    onRegister(values);
+    onRegister(values)
+      .then(resetForm)
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -16,6 +21,9 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
       title="Sign up"
       buttonText="Sign up"
       name="register"
+      formClassName="modal__form_type_register"
+      secondaryButtonText="or Log in"
+      onSecondaryButtonClick={onLoginClick}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={submit}

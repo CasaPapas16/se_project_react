@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  z-index: 1;
 }
 
 .modal_opened {
@@ -42,11 +43,45 @@
   overflow: hidden;
 }
 
+.modal_type_edit-profile .modal__content {
+  height: 304px;
+}
+
+.modal_type_register .modal__content {
+  height: 456px;
+}
+
+.modal_type_login .modal__content {
+  height: 304px;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 20px;
+}
+
+.modal__form_type_edit-profile {
+  gap: 20px;
+  padding-top: 24px;
+}
+
+.modal__form_type_edit-profile .modal__label {
+  font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-style: bold;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.modal__form_type_register {
+  padding-top: 24px;
+}
+
+.modal__form_type_login {
+  padding-top: 24px;
 }
 
 .modal__input {
@@ -133,4 +168,22 @@
   font-size: 16px;
   cursor: pointer;
   align-self: flex-start;
+}
+
+.modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal__secondary-button {
+  margin-top: 8px;
+  padding: 12px 0;
+  border: none;
+  background: transparent;
+  color: #00000099;
+  cursor: pointer;
+  font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
 }

@@ -29,7 +29,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const {
     values,
     errors,
-    isValid,
     hasSubmitted,
     handleChange,
     resetForm,

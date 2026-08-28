@@ -3,7 +3,7 @@ import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 const defaultValues = { email: "", password: "" };
 
-function LoginModal({ isOpen, onClose, onLogin }) {
+function LoginModal({ isOpen, onClose, onLogin, onRegisterClick }) {
   const { values, handleChange } = useFormWithValidation(defaultValues, {});
 
   const submit = (event) => {
@@ -16,6 +16,9 @@ function LoginModal({ isOpen, onClose, onLogin }) {
       title="Log in"
       buttonText="Log in"
       name="login"
+      formClassName="modal__form_type_login"
+      secondaryButtonText="or Sign Up"
+      onSecondaryButtonClick={onRegisterClick}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={submit}
