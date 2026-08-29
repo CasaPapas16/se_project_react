@@ -66,4 +66,4 @@ export const fallbackCoordinates = {
   longitude: -115.139832,
 };
 
-export const Apikey = "3d07d45968d5b1afac82f04e72db849b";
+export const apiKey = "3d07d45968d5b1afac82f04e72db849b";

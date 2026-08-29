@@ -1,8 +1,8 @@
 import { handleServerResponse } from "./api";
 
-export const getWeather = ({ latitude, longitude }, Apikey) => {
+export const getWeather = ({ latitude, longitude }, apiKey) => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${Apikey}`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`,
   ).then(handleServerResponse);
 };
 

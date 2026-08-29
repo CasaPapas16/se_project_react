@@ -12,7 +12,6 @@
   margin: 0;
   font-weight: 700;
   line-height: 24px;
-  font-style: bold;
   font-size: 20px;
   font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
 }
@@ -34,7 +33,6 @@
   cursor: pointer;
   font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
   font-size: 20px;
-  font-style: bold;
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0;
@@ -45,7 +43,6 @@
   border-style: none;
   font-weight: 700;
   line-height: 24px;
-  font-style: bold;
   font-size: 20px;
   font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
   cursor: pointer;
@@ -61,7 +58,6 @@
   margin: 0;
   font-weight: 700;
   line-height: 24px;
-  font-style: bold;
   font-size: 20px;
   font-family: "Cabinet Grotesk", "Helvetica Neue", sans-serif;
 }

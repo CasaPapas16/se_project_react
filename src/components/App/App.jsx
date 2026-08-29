@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import "./App.css";
-import { fallbackCoordinates, Apikey } from "../../utils/constants";
+import { fallbackCoordinates, apiKey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -28,6 +28,7 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
+  const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -67,18 +68,21 @@ function App() {
         setCurrentUser(user);
         setIsLoggedIn(true);
         closeActiveModal();
+        navigate("/");
       })
       .catch(console.error);
   };
 
   const handleRegister = (userData) => {
-    register(userData).then(() => handleLogin(userData));
+    return register(userData).then(() =>
+      handleLogin({ email: userData.email, password: userData.password }),
+    );
   };
 
   const handleUpdateProfile = (userData) => {
     updateUser(userData, token)
       .then((user) => {
-        setCurrentUser(user);
+        setCurrentUser((prev) => ({ ...prev, ...user }));
         closeActiveModal();
       })
       .catch(console.error);
@@ -143,7 +147,7 @@ function App() {
 
   useEffect(() => {
     const loadWeatherForCurrentLocation = (coords) => {
-      getWeather(coords, Apikey)
+      getWeather(coords, apiKey)
         .then((data) => {
           const filteredData = filterWeatherData(data);
           setWeatherData(filteredData);
