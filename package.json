@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://casandova.d-n-s.name",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
+    "deploy": "npm run build && scp -r ./dist/* adrian_sandoval@casandova.d-n-s.name:/home/adrian_sandoval/frontend",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
